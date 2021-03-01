@@ -1,0 +1,22 @@
+.ubicacion {
+    text-align: right;
+}
+
+.separar {
+    margin-left: 10%;
+}
+
+.procesar {
+    color: brown;
+    text-align: center;
+}
+
+.procesado {
+    color: green;
+    text-align: center;
+}
+
+.tarjeta {
+    margin: 2% 5% auto 5%;
+    text-align: center;
+}

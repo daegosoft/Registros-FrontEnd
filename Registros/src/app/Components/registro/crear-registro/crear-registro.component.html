@@ -1,0 +1,23 @@
+<body>
+    <p-toast></p-toast>
+    <div class="tarjeta">
+        <p-card header="Crear Registro">
+            <div class="tabla">
+                <p-table>
+                    <ng-template pTemplate="footer">
+                        <tr>
+                            <td><b>Nombre</b></td>
+                            <td><input type="text" [(ngModel)]="nombre" placeholder="Nombre" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Apellido</b></td>
+                            <td><input type="text" [(ngModel)]="apellido" placeholder="Apellido" size="30"></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <p-button label="Atrás" icon="pi pi-caret-left" (click)="atras()"></p-button>&nbsp;&nbsp;
+            <p-button label="Crear" icon="pi pi-check" (click)="crear()"></p-button>
+        </p-card>
+    </div>
+</body>

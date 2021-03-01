@@ -1,0 +1,44 @@
+<body>
+    <p-toast></p-toast>
+    <div class="tarjeta">
+        <p-card header="Registros">
+            <p-toolbar>
+                <div class="p-toolbar-group-left">
+                    <p-button label="Nuevo" icon="pi pi-plus" [routerLink]="['/crear']"></p-button>
+                    <p-button label="Procesar" icon="pi pi-check" styleClass="p-button-warning" class="separar" *ngIf="validarProcesar()" (click)="procesarVarios()"></p-button>
+                </div>
+            </p-toolbar>
+            <p-table [value]="registros" [(selection)]="registrosSelected">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th *ngFor="let item of columnas">{{item.label}}</th>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData>
+                    <tr>
+                        <td>{{rowData.id}}</td>
+                        <td>{{rowData.name}}</td>
+                        <td>{{rowData.lastName}}</td>
+                        <td>
+                            <div *ngIf="rowData.procesar else procesar">
+                                <i class="pi pi-check procesado"></i>
+                            </div>
+                            <ng-template #procesar>
+                                <i class="pi pi-times procesar"></i>
+                            </ng-template>
+                        </td>
+                        <th style="width: 3rem">
+                            <p-tableCheckbox [value]="rowData" *ngIf="!rowData.procesar"></p-tableCheckbox>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="ubicacion">Total Registros {{registros.length}}</div>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+</body>
